@@ -18,6 +18,7 @@ async function generateRandomBuild() {
   const chests = await loadItems('chests.json');
   const gauntlets = await loadItems('gauntlets.json');
   const helms = await loadItems('helms.json');
+  const legs = await loadItems('legs.json'); // Load legs items
   const sorceries = await loadItems('sorceries.json');
   const incantations = await loadItems('incantations.json');
 
@@ -26,10 +27,11 @@ async function generateRandomBuild() {
   const randomChest = generateRandomItem(chests);
   const randomGauntlet = generateRandomItem(gauntlets);
   const randomHelm = generateRandomItem(helms);
+  const randomLegs = generateRandomItem(legs); // Generate random legs item
   const randomSorceries = generateRandomItems(sorceries, 10);
   const randomIncantations = generateRandomItems(incantations, 10);
 
-  displayBuild(randomRightHandWeapon, randomLeftHandWeapon, randomChest, randomGauntlet, randomHelm);
+  displayBuild(randomRightHandWeapon, randomLeftHandWeapon, randomChest, randomGauntlet, randomHelm, randomLegs);
   displaySorceries(randomSorceries);
   displayIncantations(randomIncantations);
 }
@@ -49,12 +51,13 @@ function generateRandomItems(items, count) {
 }
 
 // Display the randomized build
-function displayBuild(rightHandWeapon, leftHandWeapon, chest, gauntlet, helm) {
+function displayBuild(rightHandWeapon, leftHandWeapon, chest, gauntlet, helm, legs) {
   document.getElementById('right-hand-weapon').textContent = rightHandWeapon;
   document.getElementById('left-hand-weapon').textContent = leftHandWeapon;
   document.getElementById('chest').textContent = chest;
   document.getElementById('gauntlet').textContent = gauntlet;
   document.getElementById('helm').textContent = helm;
+  document.getElementById('legs').textContent = legs; // Display the randomized legs item
 }
 
 // Display the randomized sorceries
