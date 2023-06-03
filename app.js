@@ -28,8 +28,8 @@ async function generateRandomBuild() {
   const randomGauntlet = generateRandomItem(gauntlets);
   const randomHelm = generateRandomItem(helms);
   const randomLegs = generateRandomItem(legs); // Generate random legs item
-  const randomSorceries = generateRandomItems(sorceries, 10);
-  const randomIncantations = generateRandomItems(incantations, 10);
+  const randomSorceries = generateRandomItems(sorceries, 12);
+  const randomIncantations = generateRandomItems(incantations, 12);
 
   displayBuild(randomRightHandWeapon, randomLeftHandWeapon, randomChest, randomGauntlet, randomHelm, randomLegs);
   displaySorceries(randomSorceries);
