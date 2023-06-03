@@ -18,22 +18,25 @@ async function generateRandomBuild() {
   const chests = await loadItems('chests.json');
   const gauntlets = await loadItems('gauntlets.json');
   const helms = await loadItems('helms.json');
-  const legs = await loadItems('legs.json'); // Load legs items
+  const legs = await loadItems('legs.json');
   const sorceries = await loadItems('sorceries.json');
   const incantations = await loadItems('incantations.json');
+  const talismans = await loadItems('talisman.json'); // Load talismans items
 
   const randomRightHandWeapon = generateRandomItem(rightHandWeapons);
   const randomLeftHandWeapon = generateRandomItem(leftHandWeapons);
   const randomChest = generateRandomItem(chests);
   const randomGauntlet = generateRandomItem(gauntlets);
   const randomHelm = generateRandomItem(helms);
-  const randomLegs = generateRandomItem(legs); // Generate random legs item
-  const randomSorceries = generateRandomItems(sorceries, 12);
-  const randomIncantations = generateRandomItems(incantations, 12);
+  const randomLegs = generateRandomItem(legs);
+  const randomSorceries = generateRandomItems(sorceries, 10);
+  const randomIncantations = generateRandomItems(incantations, 10);
+  const randomTalismans = generateRandomItems(talismans, 4); // Generate random talismans
 
   displayBuild(randomRightHandWeapon, randomLeftHandWeapon, randomChest, randomGauntlet, randomHelm, randomLegs);
   displaySorceries(randomSorceries);
   displayIncantations(randomIncantations);
+  displayTalismans(randomTalismans); // Display the randomized talismans
 }
 
 // Generate random items from the given items array
@@ -57,7 +60,7 @@ function displayBuild(rightHandWeapon, leftHandWeapon, chest, gauntlet, helm, le
   document.getElementById('chest').textContent = chest;
   document.getElementById('gauntlet').textContent = gauntlet;
   document.getElementById('helm').textContent = helm;
-  document.getElementById('legs').textContent = legs; // Display the randomized legs item
+  document.getElementById('legs').textContent = legs;
 }
 
 // Display the randomized sorceries
@@ -70,6 +73,12 @@ function displaySorceries(sorceries) {
 function displayIncantations(incantations) {
   const incantationsList = incantations.map(incantation => `<li>${incantation}</li>`).join('');
   document.getElementById('incantations').innerHTML = incantationsList;
+}
+
+// Display the randomized talismans
+function displayTalismans(talismans) {
+  const talismansList = talismans.map(talisman => `<li>${talisman}</li>`).join('');
+  document.getElementById('talismans').innerHTML = talismansList;
 }
 
 // Generate a random build when the page loads
